@@ -22,4 +22,4 @@ services:
     ports:
       - '8080:8080'
     volumes:
-      - '/localdata/tcdata:/usr/local/tomcat/webapps'
+      - './localdata/tcdata:/usr/local/tomcat/webapps'
