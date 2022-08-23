@@ -8,4 +8,4 @@ services:
         POSTGRES_PASSWORD: Passw0rd
     volumes:
       - '/opt/pgdata:/var/lib/postgresql/data'
-    user: '1001:1001'
+    user: '1000:1000'
