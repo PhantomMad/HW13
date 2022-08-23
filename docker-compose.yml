@@ -2,6 +2,8 @@
 version: '3.3'
 services:
   db:
+    env_file:
+      - .env
     build:
       context: ./db
     image: 'postgres:tomcat'
