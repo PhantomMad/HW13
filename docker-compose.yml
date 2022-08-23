@@ -23,5 +23,3 @@ services:
       - '8080:8080'
     volumes:
       - '/localdata/tcdata:/usr/local/tomcat/webapps'
-    #  - './db/pginit:/docker-entrypoint-initdb.d'
-    #user: '1000:1000'
