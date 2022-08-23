@@ -15,8 +15,8 @@ services:
       - './db/pginit:/docker-entrypoint-initdb.d'
     user: '1000:1000'
   web:
-    env_file:
-      - .env
+    #env_file:
+    #  - .env
     build:
       context: ./web
     image: 'tomcat:hw13'
