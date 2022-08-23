@@ -22,7 +22,7 @@ services:
     image: 'tomcat:hw13'
     restart: always
     ports:
-      - '80:8080'
+      - '8080:8080'
     #volumes:
     #  - '/opt/pgdata:/var/lib/postgresql/data'
     #  - './db/pginit:/docker-entrypoint-initdb.d'
