@@ -160,3 +160,5 @@ cython_debug/
 venv/
 #Server logs folder
 logs/
+#Project local data
+localdata/
