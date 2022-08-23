@@ -1,0 +1,8 @@
+---
+version: '3.3'
+services:
+  db:
+    image: 'postgres:11.15-bullseye'
+    restart: always
+    environment:
+        POSTGRES_PASSWORD: Passw0rd
