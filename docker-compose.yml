@@ -7,7 +7,7 @@ services:
     image: 'postgres:tomcat'
     restart: always
     environment:
-        POSTGRES_PASSWORD: Passw0rd
+        POSTGRES_PASSWORD: 'Passw0rd'
     volumes:
       - '/opt/pgdata:/var/lib/postgresql/data'
       - './db/pginit:/docker-entrypoint-initdb.d'
