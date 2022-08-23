@@ -8,6 +8,10 @@ services:
       context: ./db
     image: 'postgres:hw13'
     restart: always
+    networks:
+      dbnet:
+        aliases:
+          - dbsrv.loc
     ports:
       - '5432:5432'
     volumes:
@@ -21,7 +25,12 @@ services:
       context: ./web
     image: 'tomcat:hw13'
     restart: always
+    networks:
+      - dbnet
     ports:
       - '8080:8080'
 #    volumes:
 #      - './localdata/tcdata:/usr/local/tomcat/webapps'
+
+networks:
+  dbnet:
