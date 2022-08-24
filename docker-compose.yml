@@ -12,7 +12,7 @@ services:
     volumes:
       - 'project:/usr/src/target'
     depends_on:
-      - web
+      - db
 
   db:
     env_file:
@@ -47,6 +47,7 @@ services:
       - 'project:/usr/local/tomcat/webapps'
     depends_on:
       - db
+      - prod
 
 volumes:
   project:
