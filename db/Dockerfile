@@ -1,2 +1,2 @@
-FROM mysql/mysql-server:8.0-amd64
+FROM mysql/mysql-server:5.6
 ENV TZ=Europe/Moscow
