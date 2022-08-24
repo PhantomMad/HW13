@@ -1,4 +1,4 @@
-CREATE DATABASE tomcat CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE dbtom CHARACTER SET utf8 COLLATE utf8_general_ci;
 CREATE USER 'tomcat'@'%' IDENTIFIED BY 'tomcat';
 GRANT ALL PRIVILEGES ON tomcat . * TO 'tomcat'@'%';
 SET SQL_SAFE_UPDATES = 0;
