@@ -4,6 +4,7 @@ services:
   prod:
     depends_on:
       - db
+      - web
     env_file:
       - ./mvn/.env
     build:
@@ -32,7 +33,6 @@ services:
   web:
     depends_on:
       - db
-      - prod
     build:
       context: ./web
     image: 'tomcat:hw13'
