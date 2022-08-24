@@ -163,3 +163,7 @@ logs/
 #Project local data
 localdata/
 postgresql-9.2-1004.jdbc4.jar
+context.xml
+server.xml
+tomcat-users.xml
+web.xml
