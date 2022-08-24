@@ -29,7 +29,7 @@ services:
       - '3306:3306'
     volumes:
       - './localdata/pgdata:/var/lib/mysql'
-#      - './db/pginit:/docker-entrypoint-initdb.d'
+      - './db/sqlinit:/docker-entrypoint-initdb.d'
 
 #  web:
 #    depends_on:
