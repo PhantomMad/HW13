@@ -1,18 +1,18 @@
 ---
 version: '3.3'
 services:
-  prod:
-    depends_on:
-      - db
-    env_file:
-      - ./mvn/.env
-    build:
-      context: ./mvn
-    image: 'maven:hw13'
-    networks:
-      - dbnet
-    volumes:
-      - 'webapps:/usr/src/target'
+#  prod:
+#    depends_on:
+#      - db
+#    env_file:
+#      - ./mvn/.env
+#    build:
+#      context: ./mvn
+#    image: 'maven:hw13'
+#    networks:
+#      - dbnet
+#    volumes:
+#      - 'webapps:/usr/src/target'
 
   db:
     env_file:
@@ -31,26 +31,26 @@ services:
       - './localdata/pgdata:/var/lib/mysql'
 #      - './db/pginit:/docker-entrypoint-initdb.d'
 
-  web:
-    depends_on:
-      - db
-      - prod
-    env_file:
-      - ./web/.env
-    build:
-      context: ./web
-    image: 'tomcat:hw13'
-    restart: always
-    networks:
-      - dbnet
-    ports:
-      - '8080:8080'
-    volumes:
-      - 'webapps:/usr/local/tomcat/webapps'
+#  web:
+#    depends_on:
+#      - db
+#      - prod
+#    env_file:
+#      - ./web/.env
+#    build:
+#      context: ./web
+#    image: 'tomcat:hw13'
+#    restart: always
+#    networks:
+#      - dbnet
+#    ports:
+#      - '8080:8080'
+#    volumes:
+#      - 'webapps:/usr/local/tomcat/webapps'
 
 
-volumes:
-  webapps:
+#volumes:
+#  webapps:
 
 networks:
   dbnet:
