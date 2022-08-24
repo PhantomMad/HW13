@@ -45,8 +45,8 @@ services:
       - 'webapps:/usr/local/tomcat/webapps'
 
 
-#volumes:
-#  webapps:
+volumes:
+  webapps:
 
 networks:
   dbnet:
