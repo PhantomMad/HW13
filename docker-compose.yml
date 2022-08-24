@@ -12,7 +12,7 @@ services:
     networks:
       - dbnet
     volumes:
-      - 'project:/usr/src/target'
+      - 'webapps:/usr/src/target'
 
   db:
     env_file:
@@ -47,11 +47,11 @@ services:
     ports:
       - '8080:8080'
     volumes:
-      - 'project:/usr/local/tomcat/webapps'
+      - 'webapps:/usr/local/tomcat/webapps'
 
 
 volumes:
-  project:
+  webapps:
 
 networks:
   dbnet:
