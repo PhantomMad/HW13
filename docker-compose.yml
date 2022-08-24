@@ -1,13 +1,52 @@
 ---
 version: '3.3'
 services:
+  prod:
+    depends_on:
+      - db
+      - web
+    env_file:
+      - ./mvn/.env
+    build:
+      context: ./mvn
+    image: 'maven:hw13'
+    networks:
+      - dbnet
+    volumes:
+      - 'webapps:/usr/src/target'
+
   db:
     build:
       context: ./db
-    image: 'postgres:tomcat'
+    image: 'mysql:hw13'
     restart: always
-    environment:
-        POSTGRES_PASSWORD: Passw0rd
+    networks:
+      dbnet:
+        aliases:
+          - dbsrv.loc
+    ports:
+      - '3306:3306'
     volumes:
-      - '/opt/pgdata:/var/lib/postgresql/data'
-    user: '1000:1000'
+      - './localdata/pgdata:/var/lib/mysql'
+      - './db/sqlinit:/docker-entrypoint-initdb.d'
+
+  web:
+    depends_on:
+      - db
+    build:
+      context: ./web
+    image: 'tomcat:hw13'
+    restart: always
+    networks:
+      - dbnet
+    ports:
+      - '8080:8080'
+    volumes:
+      - 'webapps:/usr/local/tomcat/webapps'
+
+
+volumes:
+  webapps:
+
+networks:
+  dbnet:
