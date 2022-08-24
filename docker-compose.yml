@@ -1,6 +1,19 @@
 ---
 version: '3.3'
 services:
+  prod:
+    env_file:
+      - ./mvn/.env
+    build:
+      context: ./mvn
+    image: 'maven:hw13'
+    networks:
+      - dbnet
+    volumes:
+      - 'project:/usr/src/target'
+    depends_on:
+      - web
+
   db:
     env_file:
       - ./db/.env
@@ -18,6 +31,7 @@ services:
       - './localdata/pgdata:/var/lib/postgresql/data'
       - './db/pginit:/docker-entrypoint-initdb.d'
     user: '1000:1000'
+
   web:
     env_file:
       - ./web/.env
@@ -29,10 +43,13 @@ services:
       - dbnet
     ports:
       - '8080:8080'
-#    volumes:
-#      - './localdata/tcdata:/usr/local/tomcat/webapps'
+    volumes:
+      - 'project:/usr/local/tomcat/webapps'
     depends_on:
       - db
+
+volumes:
+  project:
 
 networks:
   dbnet:
