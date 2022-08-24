@@ -31,6 +31,8 @@ services:
       - '8080:8080'
 #    volumes:
 #      - './localdata/tcdata:/usr/local/tomcat/webapps'
+    depends_on:
+      - db
 
 networks:
   dbnet:
