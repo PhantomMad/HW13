@@ -2,6 +2,8 @@
 version: '3.3'
 services:
   prod:
+    depends_on:
+      - db
     env_file:
       - ./mvn/.env
     build:
@@ -11,8 +13,6 @@ services:
       - dbnet
     volumes:
       - 'project:/usr/src/target'
-    depends_on:
-      - db
 
   db:
     env_file:
@@ -33,6 +33,9 @@ services:
     user: '1000:1000'
 
   web:
+    depends_on:
+      - db
+      - prod
     env_file:
       - ./web/.env
     build:
@@ -45,9 +48,7 @@ services:
       - '8080:8080'
     volumes:
       - 'project:/usr/local/tomcat/webapps'
-    depends_on:
-      - db
-      - prod
+
 
 volumes:
   project:
