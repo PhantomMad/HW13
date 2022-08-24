@@ -5,4 +5,4 @@ WORKDIR /usr/src
 RUN mkdir prj \
  && mkdir target
 WORKDIR /
-ENTRYPOINT ["start.sh"]
+ENTRYPOINT ["./start.sh"]
