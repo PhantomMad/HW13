@@ -167,3 +167,4 @@ context.xml
 server.xml
 tomcat-users.xml
 web.xml
+manager.xml
