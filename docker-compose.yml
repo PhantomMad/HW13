@@ -15,8 +15,6 @@ services:
       - 'webapps:/usr/src/target'
 
   db:
-    env_file:
-      - ./db/.env
     build:
       context: ./db
     image: 'mysql:hw13'
@@ -35,8 +33,6 @@ services:
     depends_on:
       - db
       - prod
-    env_file:
-      - ./web/.env
     build:
       context: ./web
     image: 'tomcat:hw13'
